@@ -1,0 +1,133 @@
+<Auth>:
+    
+    BoxLayout:
+        orientation : "vertical"
+        canvas.before:
+            Color:
+                rgba: (1, 1, 1, 1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+                source:'assets/imgs/bg-login.png'
+        AnchorLayout:
+            anchor_y:'bottom'
+            Image:
+                source:'assets/imgs/logo-light.png'
+        
+        BoxLayout:
+            orientation: "vertical"
+            spacing: dp(24)
+            Text:
+                text: "POS System"
+                font_name: app.fonts.heading
+                font_size: sp(42)
+                color: app.color_primary_text
+                halign: 'center'
+                valign: 'bottom'
+                
+                size_hint_y: .3
+        BoxLayout:   
+            padding: [dp(24),0,dp(24),0]
+            Label:
+                text: "An All In One, Simple yet feature rich solution for your business"
+                text_size: [self.parent.width, None]
+                size: self.texture_size
+                color: app.color_primary_text
+                font_size: sp(24) 
+                size_hint_x: 2
+                font_name: app.fonts.subheading
+                halign: 'center'
+                valign: 'top' 
+    
+    BoxLayout:                
+        orientation:'vertical'
+        spacing: dp(12)
+        BoxLayout:
+            orientation:'vertical'
+            size_hint_y: .5
+            Text:
+                text: "Kareem"
+                font_name: app.fonts.styled
+                font_size: app.fonts.size.extra
+                color: app.color_primary_text
+                halign: 'center'
+                valign: 'bottom'
+                size_hint_y: None
+                height: dp(54)
+            AnchorLayout:
+                anchor_y: 'top'
+
+                padding: dp(24)
+                BoxLayout:   
+
+                    Label:
+                        text: "Enter your details to sign in and access the pos system"
+                        text_size: [self.parent.width, None]
+                        size: self.texture_size
+                        color: app.color_secondary_text
+                        font_size: sp(24) 
+                        font_name: app.fonts.body
+                        halign: 'center'
+                        valign: 'top' 
+                
+        AnchorLayout:
+            size_hint_y: 1.9
+            BoxLayout:
+                orientation:'vertical'
+                spacing: dp(24)
+                padding: [dp(24),dp(500),dp(24),dp(24)]
+                size_hint_x: .7
+                BackBox:
+                    size_hint_y:None
+                    height: dp(64)
+                    bcolor: app.color_secondary_bg
+                    radius: [self.height*.1]
+                    padding: [dp(12), dp(2)]
+                    FlatField:
+                        id:user
+
+                        multiline: False
+                        hint_text: 'username'
+                        hint_text_color: app.color_primary_text
+                        font_size: app.fonts.size.h2
+                BackBox:
+                    size_hint_y:None
+                    height: dp(64)
+                    bcolor: app.color_secondary_bg
+                    radius: [self.height*.1]
+                    FlatField:
+
+                        multiline: False
+                        id: paw
+                        hint_text: 'Password'
+                        password: True
+                        hint_text_color: app.color_primary_text
+                        font_size: app.fonts.size.h2
+                BackBox:
+                    size_hint_y:None
+                    height: dp(64)
+                    RoundedButton:
+                        text: 'Log in'
+                        font_name: app.fonts.heading
+                        font_size: app.fonts.size.h1
+                        bcolor: app.color_primary
+                        radius: [self.height*.1]
+                        on_press: root.cheak()
+                Widget:
+        AnchorLayout:
+
+            anchor_y: 'bottom'
+        
+            size_hint_y: .5
+            Text:
+                text: "V1.0.0"
+                font_size: app.fonts.size.h3
+                color: app.color_secondary_text
+                halign: 'center'
+                valign: 'bottom'
+                size_hint_y: None
+        BoxLayout:
+            size_hint_y: .2
+            orientation:'vertical'
+            

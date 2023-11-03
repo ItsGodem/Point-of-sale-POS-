@@ -1,0 +1,228 @@
+<Stock>:
+	BackBox:
+        orientation:'vertical'
+        size_hint_x: .7
+        spacing: dp(12)
+        padding: [dp(14), 0]
+		
+        BoxLayout:
+            spacing: dp(12)
+            size_hint_y: None
+            height: dp(64)
+
+            bcolor: app.color_primary
+            AnchorLayout:
+                anchor_x: 'right'
+                padding: [dp(24), dp(3)]
+                BackBox:    
+                    bcolor: app.color_primary
+                    radius: [self.height *.1]
+                    size_hint_y: None
+                    height: dp(54)
+                    size_hint_x: None
+        
+					RoundedButton:
+                        color: app.color_secondary_text
+                        text: 'Add New'
+                        font_size: sp(24)
+                        size_hint_x: None
+						halign: 'right'
+						on_release: root.add(True)
+        BoxLayout:
+            spacing: dp(12)
+            orientation: 'vertical'
+            padding: [0,0,dp(24), 0]
+            BackBox:
+                size_hint_y: None
+                height: dp(48)
+                bcolor: app.color_secondary_bg
+                spacing: dp(12)
+                padding: [dp(12), dp(2)]
+                Text:
+                    text: "Id"
+                    font_name: app.fonts.heading
+                    font_size: app.fonts.size.h3
+                    color: app.color_primary_text
+                    valign: 'middle'
+                    size_hint_x: .1
+
+                Text:
+                    text: "Product Name"
+                    font_name: app.fonts.heading
+                    font_size: app.fonts.size.h3
+                    color: app.color_primary_text
+                    valign: 'middle'
+                    size_hint_x: .4
+                Text:
+                    text: "Qty"
+                    font_name: app.fonts.heading
+                    font_size: app.fonts.size.h3
+                    color: app.color_primary_text
+                    valign: 'middle'
+                    size_hint_x: .3
+
+                Text:
+                    text: "Price"
+                    font_name: app.fonts.heading
+                    font_size: app.fonts.size.h3
+                    color: app.color_primary_text
+                    valign: 'middle'
+                    size_hint_x: .25
+                Text:    
+                    text: icon('icon-trash-2')    
+                    color: app.color_primary_text
+                    font_size: app.fonts.size.h1
+                    size_hint_x: .1
+            BoxLayout:   
+                
+                ScrollView:
+                    do_scroll: [False, True]
+                    size_hint_y: None
+                    height: self.parent.height
+                    GridLayout:
+                        
+                        id: gl_users
+                        cols: 1
+                        spacing: dp(12)
+                        size_hint_y: None
+                        height: self.minimum_height
+<Add>:
+	background: ''
+	background_color: [0,0,0,0]
+	
+	AnchorLayout:
+		anchor_x: 'right'
+		BackBox:
+			orientation:'vertical'
+			spacing: dp(24)
+			size_hint_x: .3
+			bcolor: app.color_primary_bg
+			AnchorLayout:
+				anchor_x: 'right'
+				anchor_y: 'top'
+				padding: dp(12)
+				FlatButton:
+				
+					color: app.color_secondary_text
+					text: icon('icon-arrow-right')
+					font_size: sp(24)
+					size_hint_x: None
+					width: self.height
+					size_hint_y: None
+					halign: 'right'
+					valign: 'top'
+					on_release: root.dismiss()
+			AnchorLayout:
+				anchor_y: 'top'
+				BoxLayout:
+					orientation:'vertical'
+					
+					valign: 'top'
+					size_hint_y: .1
+					Text:
+						text: "Add New"
+						font_name: app.fonts.styled
+						font_size: app.fonts.size.extra
+						color: app.color_primary_text
+						halign: 'center'
+						size_hint_y: None
+
+			BackBox:
+				halign: 'center'
+				valign: 'top'
+				size_hint_y:None
+				height: dp(64)
+				bcolor: app.color_secondary_bg
+				radius: [self.height*.1]
+				padding: [dp(12), dp(12)]
+				FlatField:
+					id:si_name
+					halign: 'center'
+					multiline: False
+					hint_text: 'name'
+					hint_text_color: app.color_primary_text
+					font_size: app.fonts.size.h2
+					
+			BackBox:
+				size_hint_y:None
+				height: dp(64)
+				bcolor: app.color_secondary_bg
+				radius: [self.height*.1]
+				FlatField:
+
+					multiline: False
+					id: si_qty
+					halign: 'center'
+					hint_text:'Qty'
+					hint_text_color: app.color_primary_text
+					font_size: app.fonts.size.h2
+
+			BackBox:
+				size_hint_y:None
+				height: dp(64)
+				bcolor: app.color_secondary_bg
+				radius: [self.height*.1]
+				FlatField:
+
+					multiline: False
+					id: si_price
+					halign: 'center'
+					hint_text: 'Price'
+					hint_text_color: app.color_primary_text
+					font_size: app.fonts.size.h2
+
+			BoxLayout:
+
+
+			BackBox:
+				size_hint_y:None
+				height: dp(64)
+				RoundedButton:
+					text: 'Add Product'
+					font_name: app.fonts.heading
+					font_size: app.fonts.size.h1
+					bcolor: app.color_primary
+					radius: [self.height*.1]
+					on_press: root.naword(root.get())
+                    on_press: root.dismiss()
+<Products>:
+    size_hint_y: None
+    height: dp(42)
+    spacing: dp(8)
+    padding: dp(12)
+    canvas.before:
+        Color:
+            rgba: rgba(0,0,0,0)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Text:
+        text: str(root.id)
+        color: app.color_primary_text
+        font_size: app.fonts.size.h4
+        font_name: app.fonts.body
+        size_hint_x: .1
+    Text:
+        text: str(root.name)
+        color: app.color_primary_text
+        font_size: app.fonts.size.h4
+        font_name: app.fonts.body
+        size_hint_x: .4
+	Text:
+        text: str(root.qty)
+        color: app.color_primary_text
+        font_size: app.fonts.size.h4
+        font_name: app.fonts.body
+        size_hint_x: .3
+	Text:
+        text: str(root.price)
+        color: app.color_primary_text
+        font_size: app.fonts.size.h4
+        font_name: app.fonts.body
+        size_hint_x: .2
+    FlatButton:
+        text: icon('icon-trash-2')
+        font_size: app.fonts.size.h3    
+        color: app.color_tertiary
+        size_hint_x: .17
+        on_release: root.dl(root)

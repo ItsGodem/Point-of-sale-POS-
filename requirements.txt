@@ -1,0 +1,9 @@
+certifi
+charset-normalizer
+docutils9
+idna
+Kivy
+Kivy-Garden
+Pygments
+requests
+urllib3

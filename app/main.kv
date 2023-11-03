@@ -1,0 +1,44 @@
+#: import BackBox widgets.box.BackBox
+#: import Text widgets.labels.Text
+#: import FlatField widgets.textfields.FlatField
+#: import SearchBar widgets.textfields.SearchBar
+#: import FlatButton widgets.buttons.FlatButton
+#: import RoundedButton widgets.buttons.RoundedButton
+
+
+
+#: import Product views.product.Product
+#: import Home views.home.Home
+#: import Auth views.auth.Auth
+#: import Roprod views.roprod.Roprod
+
+#: import icon kivy.garden.iconfonts.icon
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+<MainWindow>:
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: app.color_primary_bg
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    ScreenManager:
+        id: scrn_mngr
+        transition: FadeTransition()
+        Screen:
+            name: 'scrn_auth'
+            Auth:
+                id: auth
+        Screen:
+            name: 'scrn_root_product'
+            Roprod:
+                id: roprod
+
+        Screen:
+            name: 'scrn_product'
+            
+            Product:
+                id: product
+        
+        
+        
