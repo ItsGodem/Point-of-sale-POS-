@@ -50,7 +50,6 @@ class Stock(BoxLayout):
             a.naword = self.naword
     def naword(self,text):
         if not text['name'] in self.s:
-            print(text,self.s)
             prod={
                 'id': text['id'],
                 'name': text['name'],
@@ -85,7 +84,6 @@ class Stock(BoxLayout):
             data = json.load(file)
 
         # 2. Update json object
-        print(p, data)
         data.remove(p)
 
         # 3. Write json file

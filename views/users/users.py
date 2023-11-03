@@ -44,7 +44,6 @@ class Users(BoxLayout):
             a.naword = self.naword
     def naword(self,text):
         if not text['user'] in self.s:
-            print(text,self.s)
             user = {
                 'user': text['user'],
                 'pass': text['pass'],
@@ -67,7 +66,7 @@ class Users(BoxLayout):
     def del_it(self,tile,name,pwd):
         if name !='root':
             p ={'user': name, 'pass': pwd}
-            print(p)
+            
             grid = self.ids.gl_users
             grid.remove_widget(tile)
             users.remove(p)

@@ -26,7 +26,6 @@ class Product(BoxLayout):
     def render(self, _):
         self.addd()
     def addd(self):
-        print(product)
         prods = []
         for x in range(len(product)):
             prod = {

@@ -133,7 +133,6 @@ class Bar(BoxLayout):
         super().__init__(**kw)
 
     def on_bar_value(self, *args):
-        print(self.bar_value)
         if type(self.bar_value) in [int, float]:
 
             bp = BarPaint()
